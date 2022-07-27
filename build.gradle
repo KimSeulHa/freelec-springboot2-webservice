@@ -1,0 +1,43 @@
+buildscript {
+    ext{ //전역 변수를 선언
+        springBootVersion = '2.1.7.RELEASE'
+        //springBootVersion 전역 변수를 생성하고 그 값을 '2.1.7.RELEASE'로 하겠다
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+//자바와 스프링 부트를 사용하기 위해서는 필수 플러그인
+apply plugins: 'java'
+apply plugins: 'eclipse'
+apply plugins: 'org.springframework.boot'
+apply plugins: 'io.spring.dependency-management'
+/////////////////////////////////////////////////
+
+plugins {
+    id 'java'
+}
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+dependencies {
+    compileClasspath('org.springframework.boot:spring-boot-starter-web')
+    testCompileClasspath('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    useJUnitPlatform()
+}

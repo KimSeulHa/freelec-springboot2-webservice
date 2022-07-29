@@ -26,5 +26,7 @@ repositories{
 dependencies{
     //Gradle 4.10 이래로 대체된 함수 compile() -> implementation()
     implementation('org.springframework.boot:spring-boot-starter-web')
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }

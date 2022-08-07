@@ -1,5 +1,6 @@
 package com.seulha.admin.domain.posts;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 /*
      Repository의 이해
      : 보통 Mybatis에서 DAO라고 불리는 DB 접근자를 JPA에서는 Repository라고 부르며 인터페이스로 생성한다.

@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Getter //(1) 룸복의 어노테이션
 @NoArgsConstructor //(2) 룸복의 어노테이션
 @Entity //(3)JPA의 어노테이션
-public class Posts {
+public class Posts extends BaseTimeEntity{
 
     @Id //(3)
     @GeneratedValue(strategy = GenerationType.IDENTITY) //(4)

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +30,7 @@ public class PostsRepositoryTest {
         String title = "테스트 게시글";
         String content = "테스트 본문";
 
+        LocalDateTime now = LocalDateTime.of(2022,10,15,0,0,0);
         postsRepository.save(Posts.builder() //(2)
                 .title(title)
                 .content(content)
@@ -38,8 +40,11 @@ public class PostsRepositoryTest {
         List<Posts> postsList = postsRepository.findAll(); //(3)
 
         Posts posts = postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
-        assertThat(posts.getContent()).isEqualTo(content);
+
+        System.out.println(">>>>>creteDate::"+posts.getCreatedDate()+",modifiedDate:"+posts.getModifiedDate());
+
+        assertThat(posts.getCreatedDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
     }
 }
 //다른 설정없이 스프링부트 테스트를 사용할 경우, h2데이터베이스를 자동으로 실행시켜 줍니다.

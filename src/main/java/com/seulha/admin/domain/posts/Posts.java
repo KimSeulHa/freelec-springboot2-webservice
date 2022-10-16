@@ -25,7 +25,7 @@ public class Posts extends BaseTimeEntity{
     private String content;
     private String author;
 
-    @Builder //(6)
+    @Builder //(6) 여기에 포함된 필드만 빌더에 포함
     public Posts(String title, String content, String author){
         this.title = title;
         this.content = content;
